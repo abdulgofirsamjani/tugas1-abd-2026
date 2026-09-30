@@ -6,13 +6,12 @@ Isi informasi berikut sebelum Milestone 1.
 
 | Item | Isi |
 |---|---|
-| Nama dataset | `[isi nama dataset]` |
-| Sumber | `[URL BPS / Satu Data Indonesia / BMKG / HuggingFace / Kaggle]` |
-| Lisensi/ketentuan pakai | `[isi]` |
-| Ukuran | `[>= 500 MB atau > 1.000.000 baris]` |
-| Periode data | `[isi]` |
-| Unit analisis | `[isi]` |
-
+| Nama dataset | Online Retail II |
+| Sumber | UCI Machine Learning Repository / Kaggle, file `online_retail_II.xlsx` |
+| Lisensi/ketentuan pakai | Untuk pembelajaran/analisis; cantumkan sumber dataset asli saat laporan akhir |
+| Ukuran | 1.067.371 baris data transaksi, 2 sheet, 8 kolom, ukuran file sekitar 43.5 MB |
+| Periode data | 1 Desember 2009 sampai 9 Desember 2011 |
+| Unit analisis | Baris transaksi penjualan ritel online per item/invoice |
 ## Tempat Mencari Dataset
 
 Pilih dataset Indonesia yang legal digunakan, dapat didokumentasikan sumbernya, dan memenuhi batas ukuran tugas.
