@@ -29,7 +29,7 @@ Dataset dipublikasikan oleh EstelerAI pada [Hugging Face Datasets](https://huggi
 
 ## Cara Memperoleh Data
 
-Salinan yang digunakan dalam tugas ini berada di `data/raw/`. Untuk mengunduh ulang file Parquet dari repository dataset, jalankan perintah berikut dari root repository. `snapshot_download()` mengambil berkas Parquet pada jalur `data_files/` dan mempertahankan struktur jalurnya di bawah `data/raw/` (sehingga file berada di `data/raw/data_files/`). Perintah ini mengunduh file mentah tanpa konversi atau transformasi.
+Salinan yang diprofilkan dalam tugas ini berada langsung di `data/raw/` (441 berkas Parquet). Untuk mengunduh ulang berkas Parquet dari repository dataset, jalankan perintah berikut dari root repository. `snapshot_download()` mempertahankan jalur file dari sumber di bawah `data/raw/`; notebook memindai folder itu secara rekursif. Pengunduhan tidak mengubah isi file. Catat commit/revision dataset saat mengambil data agar versi yang dipakai dapat dikenali.
 
 Pasang dependensi jika belum tersedia:
 
@@ -46,7 +46,7 @@ snapshot_download(
     repo_id="esteler-ai/idn-news-az",
     repo_type="dataset",
     local_dir="data/raw",
-    allow_patterns="data_files/*.parquet",
+    allow_patterns="*.parquet",
 )
 ```
 
@@ -64,7 +64,9 @@ preview = news.select("date", "title").limit(5).collect()
 print(preview)
 ```
 
-`scan_parquet()` membangun rencana pemrosesan lazy; data baru dibaca saat operasi seperti `collect()` dijalankan. Bila diperlukan pengunduhan yang terikat pada versi tertentu, isi parameter `revision` dengan commit ID dataset yang telah dicatat. Tanpa parameter tersebut, Hugging Face mengunduh versi terbaru.
+`scan_parquet()` membangun rencana pemrosesan lazy; data baru dibaca saat operasi seperti `collect()` dijalankan. Untuk mengikat pengunduhan pada versi yang sama, tetapkan `revision` ke commit ID dataset yang sudah diverifikasi dan dicatat, misalnya `revision="<commit-id-yang-dicatat>"`. Jangan menebak ID versi. Jika tidak diberikan, Hugging Face mengambil revisi default terkini sehingga isi dataset dapat berubah.
+
+> **Catatan versi salinan lokal:** commit/revision Hugging Face yang dipakai saat 441 file lokal ini diunduh tidak tercatat. Dengan demikian, ID revisi dataset asal belum dapat diverifikasi dari repository; untuk unduhan berikutnya, rekam commit ID dan isi `revision` agar sumber dapat dipatok.
 
 ## Aturan Penyimpanan
 

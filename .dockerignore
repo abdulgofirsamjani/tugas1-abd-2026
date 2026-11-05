@@ -1,0 +1,11 @@
+# Data besar tidak perlu disalin ke image; mount repository saat menjalankan container.
+data/raw/
+data/processed/
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.git/
+*.zip
+*.tmp
+.env

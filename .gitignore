@@ -7,23 +7,21 @@ __pycache__/
 venv/
 env/
 .env
+.env.*
+!.env.example
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Data besar: simpan petunjuk unduh di data/README.md, bukan file data di Git
-data/raw/*
-!data/raw/.gitkeep
+# Data mentah dan hasil cleaning yang dapat dibangun ulang
 data/raw/
-!data/raw/
-!data/raw/.gitkeep
-*.zip
 data/processed/*
 !data/processed/.gitkeep
 
-# Output hasil analisis dan visualisasi
-output/figures/*
-!output/figures/.gitkeep
+# Cache/output sementara
+*.zip
+*.tmp
+*.tmp.parquet
 output/*.csv
 output/*.parquet
 output/*.json
